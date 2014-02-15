@@ -1,0 +1,59 @@
+\hypertarget{classCUI}{\section{C\-U\-I Class Reference}
+\label{classCUI}\index{C\-U\-I@{C\-U\-I}}
+}
+
+
+'Parses' user events, as well as keeps Bookkeeping information on several user states.  
+
+
+
+
+{\ttfamily \#include $<$C\-U\-I.\-h$>$}
+
+Inheritance diagram for C\-U\-I\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCUI}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classCUI_aaca9bcb98d25fa4b4868bc3266f44ec6}{{\bfseries C\-U\-I} (\hyperlink{classCPlayer}{C\-Player} $\ast$p\-Player)}\label{classCUI_aaca9bcb98d25fa4b4868bc3266f44ec6}
+
+\item 
+\hypertarget{classCUI_ab0b322040b41a6650bd625216f77b75c}{void {\bfseries update} ()}\label{classCUI_ab0b322040b41a6650bd625216f77b75c}
+
+\item 
+\hypertarget{classCUI_addb1531f20541cb7c7f8688f1cd843e9}{bool {\bfseries user\-Input\-\_\-key\-Press} (sf\-::\-Event $\ast$p\-Event)}\label{classCUI_addb1531f20541cb7c7f8688f1cd843e9}
+
+\item 
+\hypertarget{classCUI_a0495bb6ad5fba9ef0552a487151f7896}{bool {\bfseries user\-Input\-\_\-key\-Release} (sf\-::\-Event $\ast$p\-Event)}\label{classCUI_a0495bb6ad5fba9ef0552a487151f7896}
+
+\item 
+\hypertarget{classCUI_a6edfa48bb429f6e1468f5c3568cf83c5}{bool {\bfseries user\-Input\-\_\-mouse\-Press} (sf\-::\-Event $\ast$p\-Event)}\label{classCUI_a6edfa48bb429f6e1468f5c3568cf83c5}
+
+\item 
+\hypertarget{classCUI_a64e3c8ad256e2d814e7112d201cb78ae}{bool {\bfseries user\-Input\-\_\-mouse\-Release} (sf\-::\-Event $\ast$p\-Event)}\label{classCUI_a64e3c8ad256e2d814e7112d201cb78ae}
+
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+'Parses' user events, as well as keeps Bookkeeping information on several user states. 
+
+Keeps bookkeeping information for the states of keys that are bound to spawn Rooms/\-Units
+
+Tells the 'Spawner' module to spawn specific objects based on current values of the key states
+
+Uses a finite state machine to determine how user events are interpreted (menu vs. game-\/play) 
+
+Definition at line 29 of file C\-U\-I.\-h.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+/home/z\-Zelman/\-Dropbox/\-Covert-\/\-Collisions Host dir/\-Covert-\/\-Collisions/src/\-Headers/C\-U\-I.\-h\item 
+/home/z\-Zelman/\-Dropbox/\-Covert-\/\-Collisions Host dir/\-Covert-\/\-Collisions/src/\-U\-I/C\-U\-I.\-cpp\end{DoxyCompactItemize}
