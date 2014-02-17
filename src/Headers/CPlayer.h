@@ -13,8 +13,9 @@
 #include "AUpdate.h"
 #include "AUserInput.h"
 #include "CTexture.h"
+#include "DPhysics.h"
 
-class CPlayer: public ARenderable, public AUpdate, public AUserInput
+class CPlayer: public ARenderable, public AUpdate, public AUserInput, public DPhysics
 {
 public:
 	CPlayer(CTexture* pTexture,
@@ -31,6 +32,8 @@ public:
 
 	bool userInput_mousePress(sf::Event* pEvent);
 	bool userInput_mouseRelease(sf::Event* pEvent);
+
+	void stepNormally();
 
 	void move_up();
 	void move_down();

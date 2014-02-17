@@ -107,43 +107,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    m_pUI = <span class="keyword">new</span> <a class="code" href="classCUI.html">CUI</a>(m_pPlayer);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">//  m_pPhysicsEngine = new CPhysicsEngine(m_pTile_Container,</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">//                                        m_pRoom_Container,</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">//                                        m_pUnit_Container);</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_pPhysicsEngine = <span class="keyword">new</span> <a class="code" href="classCPhysicsEngine.html">CPhysicsEngine</a>(m_pPlayer, m_pTile_Container);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// re-work the window to be dependent on the amount of tiles in the world</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// work toward finding the whole world width/height</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//  sf::Vector2&lt;int&gt; gridSize = m_pTile_Container-&gt;getGridSize();</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//  sf::Vector2&lt;int&gt; gridSubSize = m_pTile_Container-&gt;getGridSubSize();</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//  int width = gridSize.x * gridSubSize.x;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//  int height = gridSize.y * gridSubSize.y;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">//  m_pWindow-&gt;create(sf::VideoMode(width, height), &quot;Placeholder-RTS&quot;);</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// re-work the window to be dependent on the amount of tiles in the world</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// work toward finding the whole world width/height</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//  sf::Vector2&lt;int&gt; gridSize = m_pTile_Container-&gt;getGridSize();</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//  sf::Vector2&lt;int&gt; gridSubSize = m_pTile_Container-&gt;getGridSubSize();</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//  int width = gridSize.x * gridSubSize.x;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">//  int height = gridSize.y * gridSubSize.y;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//  m_pWindow-&gt;create(sf::VideoMode(width, height), &quot;Placeholder-RTS&quot;);</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    isRunning = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    isPaused = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    isRunning = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    isPaused = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;CGame::~CGame()</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">delete</span> m_pWindow;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    m_pWindow = NULL;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">delete</span> m_pTexture;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    m_pTexture = NULL;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">delete</span> m_pPlayer;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    m_pPlayer = NULL;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">delete</span> m_pRenderEngine;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    m_pRenderEngine = NULL;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;CGame::~CGame()</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">delete</span> m_pWindow;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    m_pWindow = NULL;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">delete</span> m_pTexture;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    m_pTexture = NULL;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">delete</span> m_pPlayer;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    m_pPlayer = NULL;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">delete</span> m_pRenderEngine;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    m_pRenderEngine = NULL;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">delete</span> m_pUI;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    m_pUI = NULL;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">//  delete m_pPhysicsEngine;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//  m_pPhysicsEngine = NULL;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">delete</span> m_pPhysicsEngine;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    m_pPhysicsEngine = NULL;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
@@ -319,7 +319,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keywordtype">void</span> CGame::update()</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;{</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">//  m_pPhysicsEngine-&gt;update();</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    m_pPhysicsEngine-&gt;<a class="code" href="classCPhysicsEngine.html#abc493897bbdb15e6787a25478730f1f5">update</a>();</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    m_pPlayer-&gt;<a class="code" href="classCPlayer.html#aa77025c046956b109a76d53c12a80fa5">update</a>();</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
@@ -334,16 +334,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    m_pWindow-&gt;display(); <span class="comment">// displays what has been rendered since last clear</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;}</div>
+<div class="ttc" id="classCPhysicsEngine_html_abc493897bbdb15e6787a25478730f1f5"><div class="ttname"><a href="classCPhysicsEngine.html#abc493897bbdb15e6787a25478730f1f5">CPhysicsEngine::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Only updates the velocities within the objects, and calls &amp;quot;stepNormally()&amp;quot; if it can step normally wi...</div><div class="ttdef"><b>Definition:</b> <a href="CPhysicsEngine_8cpp_source.html#l00025">CPhysicsEngine.cpp:25</a></div></div>
 <div class="ttc" id="classCUI_html"><div class="ttname"><a href="classCUI.html">CUI</a></div><div class="ttdoc">&amp;#39;Parses&amp;#39; user events, as well as keeps Bookkeeping information on several user states. </div><div class="ttdef"><b>Definition:</b> <a href="CUI_8h_source.html#l00029">CUI.h:29</a></div></div>
 <div class="ttc" id="classCRenderEngine_html"><div class="ttname"><a href="classCRenderEngine.html">CRenderEngine</a></div><div class="ttdef"><b>Definition:</b> <a href="CRenderEngine_8h_source.html#l00018">CRenderEngine.h:18</a></div></div>
 <div class="ttc" id="classCTexture_html"><div class="ttname"><a href="classCTexture.html">CTexture</a></div><div class="ttdef"><b>Definition:</b> <a href="CTexture_8h_source.html#l00013">CTexture.h:13</a></div></div>
-<div class="ttc" id="classCPlayer_html"><div class="ttname"><a href="classCPlayer.html">CPlayer</a></div><div class="ttdef"><b>Definition:</b> <a href="CPlayer_8h_source.html#l00017">CPlayer.h:17</a></div></div>
+<div class="ttc" id="classCPhysicsEngine_html"><div class="ttname"><a href="classCPhysicsEngine.html">CPhysicsEngine</a></div><div class="ttdef"><b>Definition:</b> <a href="CPhysicsEngine_8h_source.html#l00017">CPhysicsEngine.h:17</a></div></div>
+<div class="ttc" id="classCPlayer_html"><div class="ttname"><a href="classCPlayer.html">CPlayer</a></div><div class="ttdef"><b>Definition:</b> <a href="CPlayer_8h_source.html#l00018">CPlayer.h:18</a></div></div>
 <div class="ttc" id="classCPlayer_html_aa77025c046956b109a76d53c12a80fa5"><div class="ttname"><a href="classCPlayer.html#aa77025c046956b109a76d53c12a80fa5">CPlayer::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Function to update object state each update cycle. </div><div class="ttdef"><b>Definition:</b> <a href="CPlayer_8cpp_source.html#l00037">CPlayer.cpp:37</a></div></div>
 <div class="ttc" id="classCTile__Container_html"><div class="ttname"><a href="classCTile__Container.html">CTile_Container</a></div><div class="ttdef"><b>Definition:</b> <a href="CTile__Container_8h_source.html#l00023">CTile_Container.h:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Feb 17 2014 04:52:19 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 17 2014 05:59:34 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

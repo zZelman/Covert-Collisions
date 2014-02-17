@@ -17,6 +17,8 @@
 
 #include "Headers/CTile_Container.h"
 
+#include "Headers/CPhysicsEngine.h"
+
 class CGame
 {
 public:
@@ -34,7 +36,7 @@ public:
 private:
 	sf::RenderWindow* m_pWindow;
 
-//	CPhysicsEngine* m_pPhysicsEngine;
+	CPhysicsEngine* m_pPhysicsEngine;
 	CRenderEngine* m_pRenderEngine;
 	CUI* m_pUI;
 

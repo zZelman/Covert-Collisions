@@ -19,9 +19,8 @@ CGame::CGame()
 
 	m_pUI = new CUI(m_pPlayer);
 
-	//	m_pPhysicsEngine = new CPhysicsEngine(m_pTile_Container,
-	//	                                      m_pRoom_Container,
-	//	                                      m_pUnit_Container);
+	m_pPhysicsEngine = new CPhysicsEngine(m_pPlayer, m_pTile_Container);
+
 
 
 	// re-work the window to be dependent on the amount of tiles in the world
@@ -52,10 +51,11 @@ CGame::~CGame()
 	delete m_pRenderEngine;
 	m_pRenderEngine = NULL;
 
+	delete m_pUI;
+	m_pUI = NULL;
 
-
-//	delete m_pPhysicsEngine;
-//	m_pPhysicsEngine = NULL;
+	delete m_pPhysicsEngine;
+	m_pPhysicsEngine = NULL;
 
 }
 
@@ -231,7 +231,7 @@ bool CGame::input_gameSystem(sf::Event* pEvent)
 
 void CGame::update()
 {
-//	m_pPhysicsEngine->update();
+	m_pPhysicsEngine->update();
 
 	m_pPlayer->update();
 

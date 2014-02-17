@@ -157,6 +157,14 @@ bool CPlayer::userInput_mouseRelease(sf::Event* pEvent)
 }
 
 
+void CPlayer::stepNormally()
+{
+	int stepSize_y = m_sPhysics.velosity_y;
+	m_pSprite->move(0, stepSize_y);
+	m_sPhysics.isFalling = true;
+}
+
+
 void CPlayer::move_up()
 {
 	currentBounds = getGlobalBounds();

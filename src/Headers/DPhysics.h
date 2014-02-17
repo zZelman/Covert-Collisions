@@ -16,9 +16,7 @@ public:
 	DPhysics();
 	virtual ~DPhysics();
 
-	/**
-	 * Physics Data
-	 */
+	// physics data
 	struct SPhysics
 	{
 		sf::Clock gravityTimer; // used in parabolic curve modeling
@@ -30,12 +28,9 @@ public:
 		void nullAll();
 	} m_sPhysics;
 
-	/**
-	 * A normal step in 1 update call
-	 *
-	 * When this method is called, it is assumed that there will NOT
-	 * be a collision within the next step based on the velocities
-	 */
+	// * a normal step in 1 update call
+	// * when this method is called, it is assumed that there will NOT
+	//		be a collision next step
 	virtual void stepNormally() = 0;
 };
 
