@@ -9,12 +9,10 @@
 
 IUpdateable::IUpdateable()
 {
-	// TODO Auto-generated constructor stub
 
 }
 
 IUpdateable::~IUpdateable()
 {
-	// TODO Auto-generated destructor stub
 }
 

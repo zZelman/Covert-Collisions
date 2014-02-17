@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,8 +95,9 @@ Inheritance diagram for AUpdate:</div>
  <div class="center">
   <img src="classAUpdate.png" usemap="#AUpdate_map" alt=""/>
   <map id="AUpdate_map" name="AUpdate_map">
-<area href="classIUpdateable.html" alt="IUpdateable" shape="rect" coords="0,0,78,24"/>
-<area href="classCTile.html" alt="CTile" shape="rect" coords="0,112,78,136"/>
+<area href="classIUpdateable.html" alt="IUpdateable" shape="rect" coords="44,0,122,24"/>
+<area href="classCPlayer.html" alt="CPlayer" shape="rect" coords="0,112,78,136"/>
+<area href="classCTile.html" alt="CTile" shape="rect" coords="88,112,166,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -108,21 +109,47 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:adf0a017c2fd5abd12f64f7f0fd992e66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf0a017c2fd5abd12f64f7f0fd992e66"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_isFirstUpdate</b></td></tr>
+<tr class="memitem:adf0a017c2fd5abd12f64f7f0fd992e66"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAUpdate.html#adf0a017c2fd5abd12f64f7f0fd992e66">m_isFirstUpdate</a></td></tr>
+<tr class="memdesc:adf0a017c2fd5abd12f64f7f0fd992e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean to keep track of first-time update cycles.  <a href="#adf0a017c2fd5abd12f64f7f0fd992e66">More...</a><br/></td></tr>
 <tr class="separator:adf0a017c2fd5abd12f64f7f0fd992e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="AUpdate_8h_source.html#l00013">13</a> of file <a class="el" href="AUpdate_8h_source.html">AUpdate.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="adf0a017c2fd5abd12f64f7f0fd992e66"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AUpdate::m_isFirstUpdate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Boolean to keep track of first-time update cycles. </p>
+<p>This is intended to prevent time-sensitive things from freaking out from the objects init time to the first update </p>
+
+<p>Definition at line <a class="el" href="AUpdate_8h_source.html#l00029">29</a> of file <a class="el" href="AUpdate_8h_source.html">AUpdate.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/zZelman/Dropbox/Covert-Collisions Host dir/Covert-Collisions/src/Headers/<a class="el" href="AUpdate_8h_source.html">AUpdate.h</a></li>
 <li>/home/zZelman/Dropbox/Covert-Collisions Host dir/Covert-Collisions/src/Abstracts/<a class="el" href="AUpdate_8cpp_source.html">AUpdate.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 14 2014 20:44:38 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 17 2014 04:52:19 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

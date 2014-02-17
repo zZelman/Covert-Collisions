@@ -233,6 +233,8 @@ void CGame::update()
 {
 //	m_pPhysicsEngine->update();
 
+	m_pPlayer->update();
+
 }
 
 

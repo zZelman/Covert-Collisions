@@ -69,6 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -77,7 +78,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,17 +98,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>getSprite_API()
 : <a class="el" href="classARenderable.html#a2cbb5617817d6697fd817f87bceebf77">ARenderable</a>
 </li>
+<li>m_isFirstUpdate
+: <a class="el" href="classAUpdate.html#adf0a017c2fd5abd12f64f7f0fd992e66">AUpdate</a>
+</li>
 <li>setSubImage()
 : <a class="el" href="classCSprite.html#a2162a3b87f87eecf9e9b93fe4c573690">CSprite</a>
 </li>
 <li>stepNormally()
 : <a class="el" href="classDPhysics.html#a414316ffcec06dbf01ced086bbb92b55">DPhysics</a>
 </li>
+<li>update()
+: <a class="el" href="classCPlayer.html#aa77025c046956b109a76d53c12a80fa5">CPlayer</a>
+</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 14 2014 20:44:38 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 17 2014 04:52:19 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

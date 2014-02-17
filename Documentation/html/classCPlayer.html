@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,7 +94,10 @@ Inheritance diagram for CPlayer:</div>
  <div class="center">
   <img src="classCPlayer.png" usemap="#CPlayer_map" alt=""/>
   <map id="CPlayer_map" name="CPlayer_map">
-<area href="classARenderable.html" alt="ARenderable" shape="rect" coords="0,0,86,24"/>
+<area href="classARenderable.html" alt="ARenderable" shape="rect" coords="0,56,86,80"/>
+<area href="classAUpdate.html" alt="AUpdate" shape="rect" coords="96,56,182,80"/>
+<area href="classAUserInput.html" alt="AUserInput" shape="rect" coords="192,56,278,80"/>
+<area href="classIUpdateable.html" alt="IUpdateable" shape="rect" coords="96,0,182,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -103,6 +106,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a983c63a3e18585a94f66f0bd23c57cd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a983c63a3e18585a94f66f0bd23c57cd3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CPlayer</b> (<a class="el" href="classCTexture.html">CTexture</a> *pTexture, const sf::Vector2&lt; int &gt; &amp;currSub)</td></tr>
 <tr class="separator:a983c63a3e18585a94f66f0bd23c57cd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa77025c046956b109a76d53c12a80fa5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa77025c046956b109a76d53c12a80fa5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCPlayer.html#aa77025c046956b109a76d53c12a80fa5">update</a> ()</td></tr>
+<tr class="memdesc:aa77025c046956b109a76d53c12a80fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to update object state each update cycle. <br/></td></tr>
+<tr class="separator:aa77025c046956b109a76d53c12a80fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab91fc8d3c4e992dd20270d5743d75f06"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab91fc8d3c4e992dd20270d5743d75f06"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>userInput_keyPress</b> (sf::Event *pEvent)</td></tr>
+<tr class="separator:ab91fc8d3c4e992dd20270d5743d75f06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ef81a467d70f1e4529f3c905820311b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ef81a467d70f1e4529f3c905820311b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>userInput_keyRelease</b> (sf::Event *pEvent)</td></tr>
+<tr class="separator:a8ef81a467d70f1e4529f3c905820311b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab73ca18309b25410b1fdb54a9ee60e67"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab73ca18309b25410b1fdb54a9ee60e67"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>userInput_mousePress</b> (sf::Event *pEvent)</td></tr>
+<tr class="separator:ab73ca18309b25410b1fdb54a9ee60e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a915cf5ad902cddb376eb4c37d362e3b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a915cf5ad902cddb376eb4c37d362e3b1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>userInput_mouseRelease</b> (sf::Event *pEvent)</td></tr>
+<tr class="separator:a915cf5ad902cddb376eb4c37d362e3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66e70893b9da823210b40638a19d6406"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66e70893b9da823210b40638a19d6406"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>move_up</b> ()</td></tr>
 <tr class="separator:a66e70893b9da823210b40638a19d6406"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,10 +162,18 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a6030df923c81b400e94ff1f6a9df41f8 inherit pro_attribs_classARenderable"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6030df923c81b400e94ff1f6a9df41f8"></a>
 <a class="el" href="classCSprite.html">CSprite</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>m_pSprite</b></td></tr>
 <tr class="separator:a6030df923c81b400e94ff1f6a9df41f8 inherit pro_attribs_classARenderable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classAUpdate"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classAUpdate')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classAUpdate.html">AUpdate</a></td></tr>
+<tr class="memitem:adf0a017c2fd5abd12f64f7f0fd992e66 inherit pro_attribs_classAUpdate"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAUpdate.html#adf0a017c2fd5abd12f64f7f0fd992e66">m_isFirstUpdate</a></td></tr>
+<tr class="memdesc:adf0a017c2fd5abd12f64f7f0fd992e66 inherit pro_attribs_classAUpdate"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean to keep track of first-time update cycles.  <a href="#adf0a017c2fd5abd12f64f7f0fd992e66">More...</a><br/></td></tr>
+<tr class="separator:adf0a017c2fd5abd12f64f7f0fd992e66 inherit pro_attribs_classAUpdate"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classAUserInput"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classAUserInput')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classAUserInput.html">AUserInput</a></td></tr>
+<tr class="memitem:a55b881326b920413bbcdf6e02c4fb021 inherit pro_attribs_classAUserInput"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55b881326b920413bbcdf6e02c4fb021"></a>
+struct <a class="el" href="structAUserInput_1_1SKeyStates.html">AUserInput::SKeyStates</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_sKeys</b></td></tr>
+<tr class="separator:a55b881326b920413bbcdf6e02c4fb021 inherit pro_attribs_classAUserInput"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="CPlayer_8h_source.html#l00015">15</a> of file <a class="el" href="CPlayer_8h_source.html">CPlayer.h</a>.</p>
+<p>Definition at line <a class="el" href="CPlayer_8h_source.html#l00017">17</a> of file <a class="el" href="CPlayer_8h_source.html">CPlayer.h</a>.</p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/zZelman/Dropbox/Covert-Collisions Host dir/Covert-Collisions/src/Headers/<a class="el" href="CPlayer_8h_source.html">CPlayer.h</a></li>
 <li>/home/zZelman/Dropbox/Covert-Collisions Host dir/Covert-Collisions/src/Players/<a class="el" href="CPlayer_8cpp_source.html">CPlayer.cpp</a></li>
@@ -154,7 +181,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 14 2014 20:44:38 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 17 2014 04:52:19 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

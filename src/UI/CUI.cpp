@@ -30,90 +30,25 @@ void CUI::update()
 
 bool CUI::userInput_keyPress(sf::Event* pEvent)
 {
-	// up
-	if ((pEvent->key.code == m_sKeys.up) &&
-	        (!m_sKeys.isUp))
+	if (m_pPlayer->userInput_keyPress(pEvent))
 	{
-		m_sKeys.isUp = true;
-		m_pPlayer->move_up();
-
 		return true;
 	}
 
-	// down
-	if ((pEvent->key.code == m_sKeys.down) &&
-	        (!m_sKeys.isDown))
-	{
-		m_sKeys.isDown = true;
-		m_pPlayer->move_down();
-
-		return true;
-	}
-
-	// left
-	if ((pEvent->key.code == m_sKeys.left) &&
-	        (!m_sKeys.isLeft))
-	{
-		m_sKeys.isLeft = true;
-		m_pPlayer->move_left();
-
-		return true;
-	}
-
-	// right
-	if ((pEvent->key.code == m_sKeys.right) &&
-	        (!m_sKeys.isRight))
-	{
-		m_sKeys.isRight = true;
-		m_pPlayer->move_right();
-
-		return true;
-	}
-
-
+	// UI not consumed by any module
 	return false;
 }
 
 
 bool CUI::userInput_keyRelease(sf::Event* pEvent)
 {
-	// up
-	if ((pEvent->key.code == m_sKeys.up) &&
-	        (m_sKeys.isUp))
+	if (m_pPlayer->userInput_keyRelease(pEvent))
 	{
-		m_sKeys.isUp = false;
-
-		return true;
-	}
-
-	// down
-	if ((pEvent->key.code == m_sKeys.down) &&
-	        (m_sKeys.isDown))
-	{
-		m_sKeys.isDown = false;
-
-		return true;
-	}
-
-	// left
-	if ((pEvent->key.code == m_sKeys.left) &&
-	        (m_sKeys.isLeft))
-	{
-		m_sKeys.isLeft = false;
-
-		return true;
-	}
-
-	// right
-	if ((pEvent->key.code == m_sKeys.right) &&
-	        (m_sKeys.isRight))
-	{
-		m_sKeys.isRight = false;
-
 		return true;
 	}
 
 
+	// UI not consumed by any module
 	return false;
 }
 
@@ -127,6 +62,7 @@ bool CUI::userInput_mousePress(sf::Event* pEvent)
 	{
 	}
 
+	// UI not consumed by any module
 	return false;
 }
 
@@ -140,6 +76,7 @@ bool CUI::userInput_mouseRelease(sf::Event* pEvent)
 	{
 	}
 
+	// UI not consumed by any module
 	return false;
 }
 

@@ -24,6 +24,9 @@ public:
 	virtual bool userInput_mouseRelease(sf::Event* pEvent) = 0;
 
 protected:
+	/**
+	 * Representation of acceptable key presses, and states of those keys
+	 */
 	struct SKeyStates
 	{
 		// Acceptable keys
@@ -38,6 +41,8 @@ protected:
 		// reset states
 		void nullStates();
 	} m_sKeys;
+
+	// TODO: does the deriving classes need a common "set_keybinds" function?
 };
 
 #endif /* IUSERINPUT_H_ */

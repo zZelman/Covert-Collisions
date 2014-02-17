@@ -20,9 +20,12 @@ public:
 
 protected:
 
-	// * Boolean to keep track of first-time update cycles
-	// * this is intended to prevent time-sensitive things from freaking out
-	//		from the object init to the first update
+	/**
+	 * Boolean to keep track of first-time update cycles
+	 *
+	 * This is intended to prevent time-sensitive things from freaking out from the objects
+	 * init time to the first update
+	 */
 	bool m_isFirstUpdate;
 };
 
