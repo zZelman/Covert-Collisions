@@ -35,11 +35,6 @@ public:
 
 	void stepNormally();
 
-	void move_up();
-	void move_down();
-	void move_left();
-	void move_right();
-
 private:
 	/**
 	 * linear movement step while a move key is down.
@@ -58,6 +53,11 @@ private:
 	 * null their states at the start of execution
 	 */
 	void setKeybinds();
+
+	void move_up();
+	void move_down();
+	void move_left();
+	void move_right();
 };
 
 #endif /* CPLAYER_H_ */

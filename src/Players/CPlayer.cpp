@@ -9,12 +9,13 @@
 #include <iostream>
 
 CPlayer::CPlayer(CTexture* pTexture, const sf::Vector2<int>& currSub)
-	: ARenderable(pTexture, currSub), AUpdate()
+	: ARenderable(pTexture, currSub), AUpdate(), AUserInput(), DPhysics()
 {
 	moveStep = 3;
 
 	setKeybinds();
 
+	m_sPhysics.isFalling = true;
 }
 
 
@@ -38,7 +39,8 @@ void CPlayer::update()
 {
 	if (m_isFirstUpdate)
 	{
-//		m_sPhysics.nullAll();
+		m_sPhysics.gravityTimer.restart();
+
 		m_isFirstUpdate = false;
 		return;
 	}
@@ -161,18 +163,22 @@ void CPlayer::stepNormally()
 {
 	int stepSize_y = m_sPhysics.velosity_y;
 	m_pSprite->move(0, stepSize_y);
-	m_sPhysics.isFalling = true;
 }
 
 
 void CPlayer::move_up()
 {
-	currentBounds = getGlobalBounds();
+//	currentBounds = getGlobalBounds();
+//
+//	int topX = currentBounds.left;
+//	int topY = currentBounds.top;
+//
+//	m_pSprite->setPosition(topX, topY - moveStep);
 
-	int topX = currentBounds.left;
-	int topY = currentBounds.top;
+	m_sPhysics.isJumping = true;
+	m_sPhysics.isFalling = false;
 
-	m_pSprite->setPosition(topX, topY - moveStep);
+	m_sPhysics.gravityTimer.restart();
 
 	m_pSprite->setSubImage(1, 1);
 }

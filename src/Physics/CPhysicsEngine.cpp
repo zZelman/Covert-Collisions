@@ -6,6 +6,7 @@
  */
 
 #include "../Headers/CPhysicsEngine.h"
+#include <iostream>
 
 CPhysicsEngine::CPhysicsEngine(CPlayer* pPlayer,
                                CTile_Container* pTile_Container)
@@ -30,6 +31,9 @@ void CPhysicsEngine::update()
 
 void CPhysicsEngine::n2_collision()
 {
+	std::cout << "fall: " << m_pPlayer->m_sPhysics.isFalling << std::endl
+	          << "jump: " << m_pPlayer->m_sPhysics.isJumping << std::endl << std::endl;
+
 	std::list<ARenderable*> tiles;
 	m_pTile_Container->getCollisiondata(&tiles);
 
@@ -57,7 +61,7 @@ void CPhysicsEngine::n2_collision()
 		{
 			pTile = dynamic_cast<CTile*>(*itr_tiles);
 
-			if (player_tile(pPlayer, pTile) == false)
+			if (player_tile(pPlayer, pTile) == true)
 			{
 				canStepNormally = false;
 				break;
@@ -67,10 +71,14 @@ void CPhysicsEngine::n2_collision()
 		if (canStepNormally == true)
 		{
 			normals.push_front(pPlayer);
+
+			if (pPlayer->m_sPhysics.isJumping == false)
+			{
+				pPlayer->m_sPhysics.isFalling = true;
+			}
 		}
 
 	}
-
 
 	applyStepNormally(&normals);
 }
@@ -88,24 +96,59 @@ bool CPhysicsEngine::player_tile(CPlayer* pPlayer, CTile* pTile)
 
 	if (futureRect.intersects(tileRect))
 	{
-		int newY = tileRect.top - futureRect.height;
-		pPlayer->setPosition(futureRect.left, newY);
+		if (pPlayer->m_sPhysics.velosity_y > 0) // moving down
+		{
+			int newY = tileRect.top - futureRect.height;
+			pPlayer->setPosition(futureRect.left, newY);
+		}
+		else if (pPlayer->m_sPhysics.velosity_y < 0) // moving up
+		{
+			int newY = tileRect.top + tileRect.height;
+			pPlayer->setPosition(futureRect.left, newY);
+		}
+		else
+		{
+#ifdef DEBUG
+			// I have no idea when this case would be called, but i want
+			//		to know when it does
+			bool isNoVelosity = false;
+			assert("Collision with no velocity [CPhysicsEngine::applyPhysics()] " && isNoVelosity);
+#endif
+		}
 
+		// common to all collisions
 		pPlayer->m_sPhysics.gravityTimer.restart();
-
 		pPlayer->m_sPhysics.isFalling = false;
+		pPlayer->m_sPhysics.isJumping = false;
 
-		return false;
+		return true;
 	}
 
-	return true;
+	return false;
 }
 
 void CPhysicsEngine::applyPhysics(DPhysics* pObject)
 {
 	sf::Time timer = pObject->m_sPhysics.gravityTimer.getElapsedTime();
-	int elapsed = timer.asMilliseconds();
-	pObject->m_sPhysics.velosity_y = (0.01) * (elapsed);
+
+	double elapsed = timer.asMilliseconds();
+
+	// make game look nice
+	// remember 'elapsed' is in MS, this reduces that massive x var
+	double reductionFactor = 0.005;
+
+	bool isJumping = pObject->m_sPhysics.isJumping;
+	bool isFalling = pObject->m_sPhysics.isFalling;
+
+	if (isJumping)
+	{
+		pObject->m_sPhysics.velosity_y = 2 * (reductionFactor * elapsed) - 10;
+	}
+
+	if (isFalling)
+	{
+		pObject->m_sPhysics.velosity_y = 2 * (reductionFactor * elapsed);
+	}
 }
 
 

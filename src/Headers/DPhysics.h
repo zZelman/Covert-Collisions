@@ -23,7 +23,8 @@ public:
 		int velosity_x;
 		int velosity_y;
 
-		bool isFalling;
+		bool isFalling; // Passively fell of of something
+		bool isJumping; // Actively wanted go go up
 
 		void nullAll();
 	} m_sPhysics;

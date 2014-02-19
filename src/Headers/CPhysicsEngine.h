@@ -53,7 +53,7 @@ private:
 	 *
 	 * Naming scheme is "this collides with that" (player -> tile == player_tile)
 	 *
-	 * @return true if can step normally, false if collision was resolved
+	 * @return true if collision
 	 */
 	bool player_tile(CPlayer* pPlayer, CTile* pTile);
 
