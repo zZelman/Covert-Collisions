@@ -1,6 +1,19 @@
 #! /bin/bash
 
-git add -A *
+echo -------------------------------------
+echo -------------------------------------
+
+./runAstyle
+
+echo -------------------------------------
+echo -------------------------------------
+
+./document
+
+echo -------------------------------------
+echo -------------------------------------
+
+git add --all *
 find . -name '.[a-z]*' -exec git add '{}' ';'
-git commit -a -m "$*"
+git commit --all --file=commitFile
 git push
