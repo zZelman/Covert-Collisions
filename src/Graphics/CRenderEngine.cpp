@@ -18,6 +18,10 @@ CRenderEngine::CRenderEngine(sf::RenderWindow* pWindow,
 	m_pPlayer 			= pPlayer;
 
 	m_pSprite = NULL;
+
+	sf::Vector2u window_size = m_pWindow->getSize();
+	m_view.reset(sf::FloatRect(0, 0, window_size.x, window_size.y));
+	m_view.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
 }
 
 
@@ -30,6 +34,8 @@ void CRenderEngine::render()
 {
 	// fill lists with respective data
 	getData();
+
+	m_pWindow->setView(m_pPlayer->getView());
 
 	// * render each type in a specific order
 	// * remember: law of super-position - things rendered

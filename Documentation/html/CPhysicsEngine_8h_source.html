@@ -121,23 +121,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> n2_collision();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// * internal collision resolution methods</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// * a potential collision has been found between these two given pointers by</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">//      the calling function, it is resolved here</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// * naming scheme is in &quot;this collides with that&quot; (room -&gt; tile == room_tile)</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// * returns true if can step normally, false if collision was resolved</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> player_tile(<a class="code" href="classCPlayer.html">CPlayer</a>* pPlayer, <a class="code" href="classCTile.html">CTile</a>* pTile);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// * applies physics to the vertical movement of the given object</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// * contains the mathematical expression to determine velocity</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> applyPhysics(<a class="code" href="classDPhysics.html">DPhysics</a>* pObject);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> applyStepNormally(std::list&lt;DPhysics*&gt;* pList);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CPHYSICSENGINE_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> player_tile(<a class="code" href="classCPlayer.html">CPlayer</a>* pPlayer, <a class="code" href="classCTile.html">CTile</a>* pTile);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> applyPhysics(<a class="code" href="classDPhysics.html">DPhysics</a>* pObject);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> applyStepNormally(std::list&lt;DPhysics*&gt;* pList);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CPHYSICSENGINE_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="DPhysics_8h_html"><div class="ttname"><a href="DPhysics_8h.html">DPhysics.h</a></div></div>
 <div class="ttc" id="classCTile_html"><div class="ttname"><a href="classCTile.html">CTile</a></div><div class="ttdoc">Rectangle of rigid space that is a rendered platform or wall. </div><div class="ttdef"><b>Definition:</b> <a href="CTile_8h_source.html#l00019">CTile.h:19</a></div></div>
 <div class="ttc" id="IUpdateable_8h_html"><div class="ttname"><a href="IUpdateable_8h.html">IUpdateable.h</a></div></div>
@@ -154,7 +146,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 25 2014 04:32:18 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 25 2014 05:53:55 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

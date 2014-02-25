@@ -16,6 +16,9 @@ CPlayer::CPlayer(CTexture* pTexture, const sf::Vector2<int>& currSub)
 	setKeybinds();
 
 	m_sPhysics.isFalling = true;
+
+	hasView = true;
+	update_view();
 }
 
 
@@ -32,38 +35,6 @@ void CPlayer::setKeybinds()
 	m_sKeys.down 	= sf::Keyboard::S;
 	m_sKeys.left 	= sf::Keyboard::A;
 	m_sKeys.right 	= sf::Keyboard::D;
-}
-
-
-void CPlayer::update()
-{
-	if (m_isFirstUpdate)
-	{
-		m_sPhysics.gravityTimer.restart();
-
-		m_isFirstUpdate = false;
-		return;
-	}
-
-	if (m_sKeys.isUp && !m_sKeys.isDown)
-	{
-		move_up();
-	}
-
-	if (m_sKeys.isDown && !m_sKeys.isUp)
-	{
-		move_down();
-	}
-
-	if (m_sKeys.isLeft && !m_sKeys.isRight)
-	{
-		move_left();
-	}
-
-	if (m_sKeys.isRight && !m_sKeys.isLeft)
-	{
-		move_right();
-	}
 }
 
 
@@ -171,6 +142,61 @@ void CPlayer::stepNormally()
 	int stepSize_x = m_sPhysics.velosity_x;
 
 	m_pSprite->move(stepSize_x, stepSize_y);
+}
+
+
+void CPlayer::update()
+{
+	if (m_isFirstUpdate)
+	{
+		m_sPhysics.gravityTimer.restart();
+
+		m_isFirstUpdate = false;
+		return;
+	}
+
+	update_view();
+
+	update_position();
+}
+
+
+void CPlayer::update_view()
+{
+	int viewDist = 10;
+	float sizeW = 32 * viewDist;
+	float sizeH = 32 * viewDist;
+
+	sf::FloatRect currRect = m_pSprite->getGlobalBounds();
+	float centerX = currRect.left + (currRect.width / 2);
+	float centerY = currRect.top + (currRect.height / 2);
+
+	m_view.setSize(sizeW, sizeH);
+	m_view.setCenter(centerX, centerY);
+}
+
+
+void CPlayer::update_position()
+{
+	if (m_sKeys.isUp && !m_sKeys.isDown)
+	{
+		move_up();
+	}
+
+	if (m_sKeys.isDown && !m_sKeys.isUp)
+	{
+		move_down();
+	}
+
+	if (m_sKeys.isLeft && !m_sKeys.isRight)
+	{
+		move_left();
+	}
+
+	if (m_sKeys.isRight && !m_sKeys.isLeft)
+	{
+		move_right();
+	}
 }
 
 

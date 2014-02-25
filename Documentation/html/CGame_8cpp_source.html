@@ -308,9 +308,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">// user changed the window size</span></div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">if</span> (pEvent-&gt;type == sf::Event::Resized)</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    {</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="comment">// TODO: assign new values for window resized</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">//      m_pGameWindow-&gt;setSize(sf::Vector2&lt;uint&gt;(pEvent-&gt;size.width, pEvent-&gt;size.height));</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">//      std::cout &lt;&lt; m_pGameWindow-&gt;getSize().x &lt;&lt; &quot;, &quot; &lt;&lt; m_pGameWindow-&gt;getSize().y &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        sf::FloatRect visibleArea(0, 0, pEvent-&gt;size.width, pEvent-&gt;size.height);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        m_pWindow-&gt;setView(sf::View(visibleArea));</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;</div>
@@ -353,14 +353,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classCPlayer_html"><div class="ttname"><a href="classCPlayer.html">CPlayer</a></div><div class="ttdoc">Base class of each individual player. </div><div class="ttdef"><b>Definition:</b> <a href="CPlayer_8h_source.html#l00023">CPlayer.h:23</a></div></div>
 <div class="ttc" id="classCGame_html_ae45938d7b77b13d2e80e4f9b3a17a44a"><div class="ttname"><a href="classCGame.html#ae45938d7b77b13d2e80e4f9b3a17a44a">CGame::getIsRunning</a></div><div class="ttdeci">bool getIsRunning()</div><div class="ttdef"><b>Definition:</b> <a href="CGame_8cpp_source.html#l00069">CGame.cpp:69</a></div></div>
 <div class="ttc" id="CGame_8h_html"><div class="ttname"><a href="CGame_8h.html">CGame.h</a></div></div>
-<div class="ttc" id="classCPlayer_html_aa77025c046956b109a76d53c12a80fa5"><div class="ttname"><a href="classCPlayer.html#aa77025c046956b109a76d53c12a80fa5">CPlayer::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Function to update object state each update cycle. </div><div class="ttdef"><b>Definition:</b> <a href="CPlayer_8cpp_source.html#l00038">CPlayer.cpp:38</a></div></div>
-<div class="ttc" id="classCRenderEngine_html_a38c058de2a8b54f208decdaa7b799ada"><div class="ttname"><a href="classCRenderEngine.html#a38c058de2a8b54f208decdaa7b799ada">CRenderEngine::render</a></div><div class="ttdeci">void render()</div><div class="ttdoc">Renders each ARenderable game object, and renders in reverse order (bottom first) because of super-po...</div><div class="ttdef"><b>Definition:</b> <a href="CRenderEngine_8cpp_source.html#l00029">CRenderEngine.cpp:29</a></div></div>
+<div class="ttc" id="classCPlayer_html_aa77025c046956b109a76d53c12a80fa5"><div class="ttname"><a href="classCPlayer.html#aa77025c046956b109a76d53c12a80fa5">CPlayer::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Function to update object state each update cycle. </div><div class="ttdef"><b>Definition:</b> <a href="CPlayer_8cpp_source.html#l00148">CPlayer.cpp:148</a></div></div>
+<div class="ttc" id="classCRenderEngine_html_a38c058de2a8b54f208decdaa7b799ada"><div class="ttname"><a href="classCRenderEngine.html#a38c058de2a8b54f208decdaa7b799ada">CRenderEngine::render</a></div><div class="ttdeci">void render()</div><div class="ttdoc">Renders each ARenderable game object, and renders in reverse order (bottom first) because of super-po...</div><div class="ttdef"><b>Definition:</b> <a href="CRenderEngine_8cpp_source.html#l00033">CRenderEngine.cpp:33</a></div></div>
 <div class="ttc" id="classCTile__Container_html"><div class="ttname"><a href="classCTile__Container.html">CTile_Container</a></div><div class="ttdoc">TODO: This object needs to be re-writen to expand functionality. </div><div class="ttdef"><b>Definition:</b> <a href="CTile__Container_8h_source.html#l00030">CTile_Container.h:30</a></div></div>
 <div class="ttc" id="classCGame_html_a9ed0bb7ef800bc7e568cf8858c3b96ec"><div class="ttname"><a href="classCGame.html#a9ed0bb7ef800bc7e568cf8858c3b96ec">CGame::getGameWindow</a></div><div class="ttdeci">sf::RenderWindow * getGameWindow()</div><div class="ttdef"><b>Definition:</b> <a href="CGame_8cpp_source.html#l00063">CGame.cpp:63</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 25 2014 04:32:18 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 25 2014 05:53:55 for Covert Collisions by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -1,1 +1,2 @@
-Completely redid collision detection between the player and tile (CPhysicsEgine::player_tile). It works now as intended.
+Rendering engine now takes into consideration the view of a single player, and screen scrolls accordingly.
+View Distance is still hard-coded though, next todo.

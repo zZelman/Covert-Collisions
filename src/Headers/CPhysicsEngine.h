@@ -45,12 +45,6 @@ private:
 	 */
 	void n2_collision();
 
-	// * internal collision resolution methods
-	// * a potential collision has been found between these two given pointers by
-	//		the calling function, it is resolved here
-	// * naming scheme is in "this collides with that" (room -> tile == room_tile)
-	// * returns true if can step normally, false if collision was resolved
-
 	/**
 	 * A potential collision has been found between these two given pointers by
 	 * the calling function, it is resolved here.
@@ -61,8 +55,6 @@ private:
 	 */
 	bool player_tile(CPlayer* pPlayer, CTile* pTile);
 
-	// * applies physics to the vertical movement of the given object
-	// * contains the mathematical expression to determine velocity
 
 	/**
 	 * Applies physics to the vertical movement of the given object.

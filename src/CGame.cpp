@@ -219,9 +219,9 @@ bool CGame::input_gameSystem(sf::Event* pEvent)
 	// user changed the window size
 	if (pEvent->type == sf::Event::Resized)
 	{
-		// TODO: assign new values for window resized
-//		m_pGameWindow->setSize(sf::Vector2<uint>(pEvent->size.width, pEvent->size.height));
-//		std::cout << m_pGameWindow->getSize().x << ", " << m_pGameWindow->getSize().y << std::endl;
+		sf::FloatRect visibleArea(0, 0, pEvent->size.width, pEvent->size.height);
+		m_pWindow->setView(sf::View(visibleArea));
+
 		return true;
 	}
 
