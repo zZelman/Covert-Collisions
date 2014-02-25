@@ -7,11 +7,6 @@
 
 #include "../Headers/IGetCollisionData.h"
 
-IGetCollisionData::IGetCollisionData()
-{
-
-}
-
 IGetCollisionData::~IGetCollisionData()
 {
 }

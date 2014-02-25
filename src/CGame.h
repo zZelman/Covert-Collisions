@@ -19,6 +19,9 @@
 
 #include "Headers/CPhysicsEngine.h"
 
+/**
+ * Host of game-loop and program flow therein, also handles SFML "system" events.
+ */
 class CGame
 {
 public:

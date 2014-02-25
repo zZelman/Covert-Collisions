@@ -11,9 +11,6 @@
 
 CUI::CUI(CPlayer* pPlayer)
 {
-	m_sKeys.nullStates();
-	setRoomKeybinds();
-
 	m_pPlayer = pPlayer;
 }
 
@@ -78,12 +75,4 @@ bool CUI::userInput_mouseRelease(sf::Event* pEvent)
 
 	// UI not consumed by any module
 	return false;
-}
-
-void CUI::setRoomKeybinds()
-{
-	m_sKeys.up 		= sf::Keyboard::W;
-	m_sKeys.down 	= sf::Keyboard::S;
-	m_sKeys.left 	= sf::Keyboard::A;
-	m_sKeys.right 	= sf::Keyboard::D;
 }

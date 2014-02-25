@@ -31,8 +31,9 @@ void CPhysicsEngine::update()
 
 void CPhysicsEngine::n2_collision()
 {
-	std::cout << "fall: " << m_pPlayer->m_sPhysics.isFalling << std::endl
-	          << "jump: " << m_pPlayer->m_sPhysics.isJumping << std::endl << std::endl;
+	// DEBUG printing the movement state of the object(s)
+//	std::cout << "fall: " << m_pPlayer->m_sPhysics.isFalling << std::endl
+//	          << "jump: " << m_pPlayer->m_sPhysics.isJumping << std::endl << std::endl;
 
 	std::list<ARenderable*> tiles;
 	m_pTile_Container->getCollisiondata(&tiles);
@@ -86,46 +87,102 @@ void CPhysicsEngine::n2_collision()
 
 bool CPhysicsEngine::player_tile(CPlayer* pPlayer, CTile* pTile)
 {
-	// pull required data from pRoom
-	sf::FloatRect futureRect = pPlayer->getGlobalBounds();
+	bool isCollision = false;
 
-	// test the future
-	futureRect.top += pPlayer->m_sPhysics.velosity_y;
+	sf::FloatRect currRect 		= pPlayer->getGlobalBounds();
+	sf::FloatRect futureRect_v 	= pPlayer->getGlobalBounds(); // vertical future
+	sf::FloatRect futureRect_h 	= pPlayer->getGlobalBounds(); // horizontal future
+	sf::FloatRect tileRect 		= pTile->getGlobalBounds();
 
-	sf::FloatRect tileRect = pTile->getGlobalBounds();
+	int newY = currRect.top;
+	int newX = currRect.left;
 
-	if (futureRect.intersects(tileRect))
+	DPhysics::SPhysics& physicsData = pPlayer->m_sPhysics;
+
+	int& velY = physicsData.velosity_y;
+	int& velX = physicsData.velosity_x;
+
+	futureRect_v.top  += velY;
+	futureRect_h.left += velX;
+
+
+	// VERTICAL
+	if (futureRect_v.intersects(tileRect) &&
+	        (velY != 0))
 	{
-		if (pPlayer->m_sPhysics.velosity_y > 0) // moving down
+		// DEBUG printing
+//		using namespace std;
+//		cout << "coll type : vertical" << endl;
+//		cout << "move type : (j: " << physicsData.isJumping << ") ; (f: " << physicsData.isFalling << ")" << endl;
+//		cout << "vel stats : " << velY << endl;
+
+
+		if (velY > 0) // down
 		{
-			int newY = tileRect.top - futureRect.height;
-			pPlayer->setPosition(futureRect.left, newY);
+			newY = tileRect.top - currRect.height;
+
+			physicsData.isFalling = false;
+			physicsData.isJumping = false;
 		}
-		else if (pPlayer->m_sPhysics.velosity_y < 0) // moving up
+		else if (velY < 0) // up
 		{
-			int newY = tileRect.top + tileRect.height;
-			pPlayer->setPosition(futureRect.left, newY);
-		}
-		else
-		{
-#ifdef DEBUG
-			// I have no idea when this case would be called, but i want
-			//		to know when it does
-			bool isNoVelosity = false;
-			assert("Collision with no velocity [CPhysicsEngine::applyPhysics()] " && isNoVelosity);
-#endif
+			newY = tileRect.top + tileRect.height;
+
+			physicsData.isFalling = true;
+			physicsData.isJumping = false;
 		}
 
-		// common to all collisions
-		pPlayer->m_sPhysics.gravityTimer.restart();
-		pPlayer->m_sPhysics.isFalling = false;
-		pPlayer->m_sPhysics.isJumping = false;
+		physicsData.gravityTimer.restart();
+		velY = 0;
 
-		return true;
+		isCollision = true;
+
+		pPlayer->setPosition(newX, newY);
+
+
+		// DEBUG printing
+//		cout << "tile cords: (" << tileRect.left << ", " << tileRect.top << ")" << endl;
+//		cout << "new player: (" << newX << ", " << newY << ")" << endl;
+//		cout << endl;
 	}
 
-	return false;
+
+	// HORIZONTAL
+	if (futureRect_h.intersects(tileRect) &&
+	        (velX != 0))
+	{
+		// DEBUG printing
+//		using namespace std;
+//		cout << "coll type : horizontal" << endl;
+//		cout << "vel stats : " << velX << endl;
+
+
+		if (velX > 0) // right
+		{
+			newX = tileRect.left - currRect.width;
+		}
+		else if (velX < 0) // left
+		{
+			newX = tileRect.left + tileRect.width;
+		}
+
+		velX = 0;
+
+		isCollision = true;
+
+		pPlayer->setPosition(newX, newY);
+
+
+		// DEBUG printing
+//		cout << "tile cords: (" << tileRect.left << ", " << tileRect.top << ")" << endl;
+//		cout << "new player: (" << newX << ", " << newY << ")" << endl;
+//		cout << endl;
+	}
+
+
+	return isCollision;
 }
+
 
 void CPhysicsEngine::applyPhysics(DPhysics* pObject)
 {
@@ -142,12 +199,12 @@ void CPhysicsEngine::applyPhysics(DPhysics* pObject)
 
 	if (isJumping)
 	{
-		pObject->m_sPhysics.velosity_y = 2 * (reductionFactor * elapsed) - 10;
+		pObject->m_sPhysics.velosity_y = 1.25f * (reductionFactor * elapsed) - 5;
 	}
 
 	if (isFalling)
 	{
-		pObject->m_sPhysics.velosity_y = 2 * (reductionFactor * elapsed);
+		pObject->m_sPhysics.velosity_y = 1.25f * (reductionFactor * elapsed);
 	}
 }
 

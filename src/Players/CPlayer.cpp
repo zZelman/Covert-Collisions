@@ -89,6 +89,7 @@ bool CPlayer::userInput_keyPress(sf::Event* pEvent)
 	if (pEvent->key.code == m_sKeys.left)
 	{
 		m_sKeys.isLeft = true;
+		m_sPhysics.velosity_x = -moveStep;
 
 		return true;
 	}
@@ -97,6 +98,7 @@ bool CPlayer::userInput_keyPress(sf::Event* pEvent)
 	if (pEvent->key.code == m_sKeys.right)
 	{
 		m_sKeys.isRight = true;
+		m_sPhysics.velosity_x = moveStep;
 
 		return true;
 	}
@@ -129,6 +131,7 @@ bool CPlayer::userInput_keyRelease(sf::Event* pEvent)
 	if (pEvent->key.code == m_sKeys.left)
 	{
 		m_sKeys.isLeft = false;
+		m_sPhysics.velosity_x = 0;
 
 		return true;
 	}
@@ -137,10 +140,10 @@ bool CPlayer::userInput_keyRelease(sf::Event* pEvent)
 	if (pEvent->key.code == m_sKeys.right)
 	{
 		m_sKeys.isRight = false;
+		m_sPhysics.velosity_x = 0;
 
 		return true;
 	}
-
 
 	// UI not consumed
 	return false;
@@ -161,20 +164,18 @@ bool CPlayer::userInput_mouseRelease(sf::Event* pEvent)
 
 void CPlayer::stepNormally()
 {
+	// vertical
 	int stepSize_y = m_sPhysics.velosity_y;
-	m_pSprite->move(0, stepSize_y);
+
+	// horizontal
+	int stepSize_x = m_sPhysics.velosity_x;
+
+	m_pSprite->move(stepSize_x, stepSize_y);
 }
 
 
 void CPlayer::move_up()
 {
-//	currentBounds = getGlobalBounds();
-//
-//	int topX = currentBounds.left;
-//	int topY = currentBounds.top;
-//
-//	m_pSprite->setPosition(topX, topY - moveStep);
-
 	m_sPhysics.isJumping = true;
 	m_sPhysics.isFalling = false;
 
@@ -186,38 +187,17 @@ void CPlayer::move_up()
 
 void CPlayer::move_down()
 {
-	currentBounds = getGlobalBounds();
-
-	int topX = currentBounds.left;
-	int topY = currentBounds.top;
-
-	m_pSprite->setPosition(topX, topY + moveStep);
-
 	m_pSprite->setSubImage(2, 1);
 }
 
 
 void CPlayer::move_left()
 {
-	currentBounds = getGlobalBounds();
-
-	int topX = currentBounds.left;
-	int topY = currentBounds.top;
-
-	m_pSprite->setPosition(topX - moveStep, topY);
-
 	m_pSprite->setSubImage(1, 2);
 }
 
 
 void CPlayer::move_right()
 {
-	currentBounds = getGlobalBounds();
-
-	int topX = currentBounds.left;
-	int topY = currentBounds.top;
-
-	m_pSprite->setPosition(topX + moveStep, topY);
-
 	m_pSprite->setSubImage(2, 2);
 }

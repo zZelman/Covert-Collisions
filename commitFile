@@ -1,1 +1,1 @@
-Fixed documentation script
+Completely redid collision detection between the player and tile (CPhysicsEgine::player_tile). It works now as intended.

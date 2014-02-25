@@ -28,12 +28,12 @@ ARenderable::~ARenderable()
 }
 
 
-CSprite* const ARenderable::getSprite()
+CSprite* const ARenderable::getSprite() const
 {
 	return m_pSprite;
 }
 
-sf::Sprite* const ARenderable::getSprite_API()
+sf::Sprite* const ARenderable::getSprite_API() const
 {
 	return m_pSprite;
 }
