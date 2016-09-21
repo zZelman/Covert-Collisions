@@ -1,0 +1,4 @@
+#+TITLE: Covert-Collisions
+#+AUTHOR: Kyle Avrett
+
+This is a video game physics engine that I worked on in college. It is from the ground up using SFML and OpenGL for the rendering.
